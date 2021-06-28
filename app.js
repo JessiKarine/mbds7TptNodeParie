@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const utilisateurRoutes = require('./routes/utilisateur');
+
 const uri = 'mongodb+srv://sedera:sederamongodb@cluster0.sqoyq.mongodb.net/nodeTptParie?retryWrites=true&w=majority';
 const options = {
     useNewUrlParser: true,
@@ -33,6 +35,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-
+// les routes utilisateur
+app.use('/api/utilisateur', utilisateurRoutes);
 
 module.exports = app;
