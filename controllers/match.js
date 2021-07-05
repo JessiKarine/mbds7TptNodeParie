@@ -1,5 +1,11 @@
 const Match = require('../models/Match');
+const Sponsor =  require('../models/Sponsor');
 
+//liste des sponsors officiel
+async function getSponsor(req, res) {
+    var sponsors = await Sponsor.find({});
+    res.send(sponsors);
+  }
 
 //recuperer les 2 derniers matchs
 async function getDerniersMatchs(req, res) {
@@ -28,6 +34,7 @@ function getMatch(req, res) {
   
   module.exports = {
     getMatch,
-    getDerniersMatchs
+    getDerniersMatchs,
+    getSponsor
   };
   

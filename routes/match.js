@@ -6,5 +6,6 @@ const matchController = require('../controllers/match');
 
 router.get('/getDerniersMatchs', matchController.getDerniersMatchs);
 router.get('/getMatch', matchController.getMatch);
+router.get('/getSponsor', matchController.getSponsor);
 
 module.exports = router;
