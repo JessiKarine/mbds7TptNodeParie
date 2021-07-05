@@ -3,8 +3,10 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const utilisateurRoutes = require('./routes/utilisateur');
+const matchRoutes = require('./routes/match');
 
-const uri = 'mongodb+srv://sedera:sederamongodb@cluster0.sqoyq.mongodb.net/nodeTptParie?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://meva98:root@cluster0.qewxf.mongodb.net/tpt?retryWrites=true&w=majority';
+
 const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -37,5 +39,7 @@ app.use(bodyParser.json());
 
 // les routes utilisateur
 app.use('/api/utilisateur', utilisateurRoutes);
+app.use('/api/utilisateur', utilisateurRoutes);
+app.use('/api/match', matchRoutes);
 
 module.exports = app;
