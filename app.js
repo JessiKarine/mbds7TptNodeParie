@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const utilisateurRoutes = require('./routes/utilisateur');
 const matchRoutes = require('./routes/match');
+const resultatRoutes = require('./routes/resultat');
 
 const uri = 'mongodb+srv://meva98:root@cluster0.qewxf.mongodb.net/tpt?retryWrites=true&w=majority';
 
@@ -41,5 +42,6 @@ app.use(bodyParser.json());
 app.use('/api/utilisateur', utilisateurRoutes);
 app.use('/api/utilisateur', utilisateurRoutes);
 app.use('/api/match', matchRoutes);
+app.use('/api/resultat', resultatRoutes);
 
 module.exports = app;
