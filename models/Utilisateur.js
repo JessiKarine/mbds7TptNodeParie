@@ -9,12 +9,12 @@ const userSchema = mongoose.Schema({
     etat: { type: String, required: true },
     email: { type: String, required: true },
     numeroTelephone: { type: String, required: true },
-    role:{
+    role: {
         id: { type: Number, require: true },
         nom: { type: String, require: true },
         rang: { type: String, require: true }
     },
-    imageProfil: { type: String, required: false}
+    imageProfil: { type: String, required: false }
 });
 
 userSchema.plugin(uniqueValidator);

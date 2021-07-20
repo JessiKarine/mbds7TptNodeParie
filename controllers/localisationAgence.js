@@ -1,8 +1,6 @@
 const LocalisationAgence = require('../models/LocalisationAgence');
 
 exports.createLocalisationAgence = (req, res, next) => {
-    
-
     LocalisationAgence.findOne({ agence: req.body.agence})
         .then(localisationAgence => {
             if(!localisationAgence){

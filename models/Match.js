@@ -1,27 +1,24 @@
 const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 const { mongo } = require("mongoose");
-const ObjectId = mongo.ObjectID;
 var aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
 const matchSchema = mongoose.Schema({
-    _id : ObjectId,
     date : Date,
     heure : String,
-    idcategorie : {
+    categorie : {
+        id: { type: Number, require: true },
+        valeur: { type: String, require: true },
+        description: { type: String, require: false }
+    },
+    equipe1 : { 
         id: { type: Number, require: true },
         nom: { type: String, require: true }
     },
-    idequipe1 : { 
-        id: { type: Number, require: true },
-        nom: { type: String, require: true },
-        image: { type: String, require: true }
-    },
     coteequipe1 : { type : Number , require: true},
-    idequipe2 : { 
+    equipe2 : { 
         id: { type: Number, require: true },
-        nom: { type: String, require: true },
-        image: { type: String, require: true }
+        nom: { type: String, require: true }
     },
     coteequipe2 : { type : Number , require: true},
     coteMacthNull: { type : Number , require: true},
@@ -30,4 +27,4 @@ const matchSchema = mongoose.Schema({
     
     matchSchema.plugin(uniqueValidator);
     matchSchema.plugin(aggregatePaginate);
-module.exports = mongoose.model('Match', matchSchema,'matchs');
+module.exports = mongoose.model('Match', matchSchema);
