@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 const localisationAgenceSchema = mongoose.Schema({
-    agence:{
+    idAgence:{
         id: { type: Number, require: true },
         nom: { type: String, require: true }
     },

@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
     etat: { type: String, required: true },
     email: { type: String, required: true },
     numeroTelephone: { type: String, required: true },
-    role: {
+    idRole: {
         id: { type: Number, require: true },
         nom: { type: String, require: true },
         rang: { type: String, require: true }
