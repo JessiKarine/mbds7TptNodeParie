@@ -8,21 +8,23 @@ const matchSchema = mongoose.Schema({
     _id: ObjectId,
     date : Date,
     heure : String,
-    idCategorie : {
+    idcategorie : {
         id: { type: Number, require: true },
-        valeur: { type: String, require: true },
-        description: { type: String, require: false }
-    },
-    idEquipe1 : { 
+        nom: { type: String, require: true },
+        description: { type: String, require: true }
+     },
+    idequipe1 : { 
         id: { type: Number, require: true },
-        nom: { type: String, require: true }
+        nom: { type: String, require: true },
+        image: { type: String, require: true }
     },
-    coteEquipe1 : { type : Number , require: true},
-    idEquipe2 : { 
+    coteequipe1 : { type : Number , require: true},
+    idequipe2 : { 
         id: { type: Number, require: true },
-        nom: { type: String, require: true }
+        nom: { type: String, require: true },
+        image: { type: String, require: true }
     },
-    coteEquipe1 : { type : Number , require: true},
+    coteequipe2 : { type : Number , require: true},
     coteMacthNull: { type : Number , require: true},
     });
 
@@ -31,4 +33,4 @@ const matchSchema = mongoose.Schema({
     matchSchema.plugin(aggregatePaginate);
 
 
-module.exports = mongoose.model('Match', matchSchema);
+module.exports = mongoose.model('matchs', matchSchema);
