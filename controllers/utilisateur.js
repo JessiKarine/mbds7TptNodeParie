@@ -1,8 +1,8 @@
 const Utilisateur = require('../models/Utilisateur');
 const bcrypt = require('bcrypt');
 
-exports.createUtilisateur = (req, res, next) => {
-    
+// create un utilisateur
+exports.createUtilisateur = (req, res, next) => {    
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
             const utilisateur = new Utilisateur({
@@ -28,6 +28,7 @@ exports.createUtilisateur = (req, res, next) => {
 
 };
 
+// get un utilisateur by login and password
 exports.getOneUtilisateurByLoginAndPassword = (req, res, next) => {
     Utilisateur.findOne({ login: req.body.login})
         .then(utilisateur => {
@@ -47,7 +48,7 @@ exports.getOneUtilisateurByLoginAndPassword = (req, res, next) => {
         .catch(error => res.status(500).json({error}));
 };
 
-
+// get all utilisateur
 exports.getAllUtilisateur = (req, res, next) => {
     Utilisateur.find()
         .then((utilisateurs) => {
@@ -58,7 +59,7 @@ exports.getAllUtilisateur = (req, res, next) => {
         });
 };
 
-
+// delete utilisateur
 exports.deleteUtilisateur = (req, res, next) => {
     Utilisateur.deleteOne({ _id: req.params.id })
         .then(() => {
