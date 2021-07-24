@@ -3,9 +3,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 const { mongo } = require("mongoose");
 var aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
-const ObjectId = mongo.ObjectID;
 const matchSchema = mongoose.Schema({
-    _id: ObjectId,
     date : Date,
     heure : String,
     idcategorie : {
@@ -26,6 +24,7 @@ const matchSchema = mongoose.Schema({
     },
     coteequipe2 : { type : Number , require: true},
     coteMacthNull: { type : Number , require: true},
+    etat: { type: String, require: true}
     });
 
     
