@@ -15,7 +15,7 @@ function createMatch(req, res) {
           coteequipe1: req.body.coteequipe1,
           idequipe2: req.body.idequipe2,
           coteequipe2: req.body.coteequipe2,
-          coteMatchNull: req.body.coteMatchNull,
+          coteMacthNull: req.body.coteMatchNull,
           etat: "A venir"
         });
         newMatch.save()
@@ -43,13 +43,24 @@ function updateMatch(req, res) {
     coteequipe1: req.body.coteequipe1,
     idequipe2: req.body.idequipe2,
     coteequipe2: req.body.coteequipe2,
-    coteMatchNull: req.body.coteMatchNull,
-    etat: req.params.etat
+    coteMacthNull: req.body.coteMatchNull,
+    etat: req.body.etat
   });
+
+   console.log(updatedMatch);
 
   Match.updateOne({ _id: req.params.id }, updatedMatch)
     .then(() => {
       res.status(200).json({ message: 'Le match a été modifié !'});
+    })
+    .catch(error => res.status(400).json({ error }));
+}
+
+// get all match
+function getAllMatchAVenir(req, res){
+  Match.find({ etat: "A venir"})
+    .then((matchs) => {
+      res.status(200).json(matchs);
     })
     .catch(error => res.status(400).json({ error }));
 }
@@ -99,5 +110,6 @@ module.exports = {
   getDerniersMatchs,
   getSponsor,
   removeMatchById,
-  updateMatch
+  updateMatch,
+  getAllMatchAVenir
 };
