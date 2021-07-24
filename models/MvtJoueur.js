@@ -4,10 +4,9 @@ const { mongo } = require("mongoose");
 var aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 var ObjectId = mongoose.ObjectID;
 const matchSchema = mongoose.Schema({
-    _id: ObjectId,
     date: Date,
-    idUser: Object,
-    idPari: Object,
+    idUser: ObjectId,
+    idPari: ObjectId,
     montantDebit: { type: Number },
     montantCredit: { type: Number }
 });

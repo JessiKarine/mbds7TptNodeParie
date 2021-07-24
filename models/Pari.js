@@ -4,11 +4,11 @@ const { mongo } = require("mongoose");
 const ObjectId = mongo.ObjectID;
 
 const pariSchema = mongoose.Schema({
-    _id: ObjectId,
     idMatch: ObjectId ,
     idEquipe: {
         id: { type: Number, require: true },
-        nom: { type: String, require: true }
+        nom: { type: String, require: true },
+        image : { type: String, require: false}
     },
     idUser: ObjectId,
     mise: { type: Number }

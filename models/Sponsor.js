@@ -5,7 +5,6 @@ const ObjectId = mongo.ObjectID;
 var aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
 const sponsorSchema = mongoose.Schema({
-    _id: ObjectId,
     nom: String,
     description: String,
     image: String

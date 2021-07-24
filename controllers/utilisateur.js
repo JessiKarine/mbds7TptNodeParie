@@ -13,7 +13,7 @@ exports.createUtilisateur = (req, res, next) => {
                 etat: req.body.etat,
                 email: req.body.email,
                 numeroTelephone: req.body.numeroTelephone,
-                idRole: req.body.role,
+                idRole: req.body.idRole,
                 imageProfil: req.body.imageProfil
             });
             utilisateur.save()

@@ -5,10 +5,9 @@ const ObjectId = mongo.ObjectID;
 var aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 
 const resultatSchema = mongoose.Schema({
-    _id: ObjectId,
     date: Date,
     heure: String,
-    idmatch: Object,
+    idmatch: ObjectId,
     pointequipe1: Number,
     pointequipe2: Number
 });
