@@ -7,6 +7,7 @@ const matchRoutes = require('./routes/match');
 const resultatRoutes = require('./routes/resultat');
 const localisationAgenceRoutes = require('./routes/localisationAgence');
 const pariRoutes = require('./routes/pari');
+const mvtJoueurRoutes = require('./routes/mvtJoueur');
 
 const uri = 'mongodb+srv://meva98:root@cluster0.qewxf.mongodb.net/tpt?retryWrites=true&w=majority';
 const uriLazaNomentsoa = 'mongodb+srv://sedera:sederamongodb@cluster0.sqoyq.mongodb.net/nodeTptParie?retryWrites=true&w=majority';
@@ -47,5 +48,6 @@ app.use('/api/localisationAgence', localisationAgenceRoutes);
 app.use('/api/match', matchRoutes);
 app.use('/api/resultat', resultatRoutes);
 app.use('/api/pari', pariRoutes);
+app.use('/api/mvtJoueur', mvtJoueurRoutes);
 
 module.exports = app;
