@@ -18,22 +18,38 @@ async function getResultatParCategorie(req,res) {
           },
           {
             $addFields : { 
-                "categorie" : "$idmatch.idcategorie.nom"
+                "categorie" : "$idmatch.idcategorie.nom", 
             }
           }, 
           {
               $unwind : "$categorie"
           },
+          {
+            $project : { 
+                "categorie" : 1,
+                "pointequipe1" : 1,
+                "pointequipe2" : 1 ,
+                "idmatch" : 1
+            }
+          },
+          {
+            $addFields : { 
+                "idmatch.pointequipe1" : "$pointequipe1",
+                "idmatch.pointequipe2" : "$pointequipe2"
+            }
+          },
           { 
               $group : { 
                   _id : "$categorie", 
-                  match : {
+                  resultats : {
                       "$push" : {
                         $arrayElemAt : ["$idmatch",0]
                       }
                   }
               }
           }
+           
+          
       ]
     
   );
