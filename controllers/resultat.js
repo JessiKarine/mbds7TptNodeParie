@@ -28,7 +28,9 @@ async function getResultatParCategorie(req,res) {
               $group : { 
                   _id : "$categorie", 
                   match : {
-                      "$addToSet" : "$idmatch"
+                      "$push" : {
+                        $arrayElemAt : ["$idmatch",0]
+                      }
                   }
               }
           }
