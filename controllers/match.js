@@ -76,23 +76,72 @@ async function getDerniersMatchs(req, res) {
   const match = await Match.find({}).sort({ date: -1, heure: -1 }).limit(2);
   res.send(match);
 }
-
+async function getMatch(req,res) {
+  try{
+    var categorie = req.query.nomcategorie;
+    let val = null ; 
+    if(!categorie || typeof categorie ==="undefined") { 
+      val = await getAllMatch(req);
+    }
+    else { 
+      val = await getUnMatch(req,categorie);
+    }
+    res.send(val);
+  }
+  catch(e) { 
+    res.send(e)
+  }   
+}
 //recuperer les matchs avec pagination
-function getMatch(req, res) {
-  var aggregateQuery = Match.aggregate();
-  Match.aggregatePaginate(
+async function getAllMatch(req) {
+  var aggregateQuery = Match.aggregate(
+    [
+      { 
+          $group : { 
+              _id : "$idcategorie.nom", 
+              match : {
+                  "$push" : "$$ROOT"
+              }
+          }
+      }
+    ]
+  );
+  const val = await Match.aggregatePaginate(
     aggregateQuery,
     {
       page: parseInt(req.query.page) || 1,
       limit: parseInt(req.query.limit) || 10,
-    },
-    (err, matchs) => {
-      if (err) {
-        res.send(err);
-      }
-      res.send(matchs);
     }
   );
+  return val;
+}
+
+async function getUnMatch(req,categorie) {
+  var aggregateQuery = Match.aggregate(
+    [
+      {
+        $match : {
+            "idcategorie.nom" : `${categorie}`
+        }
+      },
+      { 
+          $group : { 
+              _id : "$idcategorie.nom", 
+              match : {
+                  "$push" : "$$ROOT"
+              }
+          }
+      }
+    ]
+  );
+  const val = await Match.aggregatePaginate(
+    aggregateQuery,
+    {
+      page: parseInt(req.query.page) || 1,
+      limit: parseInt(req.query.limit) || 10,
+    }
+  );
+  return val;
 }
 
 // suppression d'un match
