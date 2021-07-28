@@ -23,7 +23,7 @@ const matchSchema = mongoose.Schema({
         image: { type: String, require: true }
     },
     coteequipe2 : { type : Number , require: true},
-    coteMacthNull: { type : Number , require: true},
+    coteMatchNull: { type : Number , require: true},
     etat: { type: String, require: true}
     });
 

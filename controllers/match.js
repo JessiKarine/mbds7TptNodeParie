@@ -15,7 +15,7 @@ function createMatch(req, res) {
           coteequipe1: req.body.coteequipe1,
           idequipe2: req.body.idequipe2,
           coteequipe2: req.body.coteequipe2,
-          coteMacthNull: req.body.coteMatchNull,
+          coteMatchNull: req.body.coteMatchNull,
           etat: "A venir"
         });
         newMatch.save()
@@ -43,7 +43,7 @@ function updateMatch(req, res) {
     coteequipe1: req.body.coteequipe1,
     idequipe2: req.body.idequipe2,
     coteequipe2: req.body.coteequipe2,
-    coteMacthNull: req.body.coteMatchNull,
+    coteMatchNull: req.body.coteMatchNull,
     etat: req.body.etat
   });
 
