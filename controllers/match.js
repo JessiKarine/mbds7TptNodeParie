@@ -92,20 +92,31 @@ async function getMatch(req,res) {
     res.send(e)
   }   
 }
+
+
 //recuperer les matchs avec pagination
 async function getAllMatch(req) {
-  var aggregateQuery = Match.aggregate(
-    [
-      { 
-          $group : { 
-              _id : "$idcategorie.nom", 
-              match : {
-                  "$push" : "$$ROOT"
-              }
-          }
+  var query = [
+    { 
+        $group : { 
+            _id : "$idcategorie.nom", 
+            match : {
+                "$push" : "$$ROOT"
+            }
+        }
+    }
+  ];
+  const etat = req.query.etat ; 
+  if(etat && typeof etat !=='undefined') { 
+    query.unshift(
+      {
+        $match : { 
+            etat : `${etat}`
+        }
       }
-    ]
-  );
+    );
+  }
+  var aggregateQuery = Match.aggregate(query)
   const val = await Match.aggregatePaginate(
     aggregateQuery,
     {
@@ -117,7 +128,7 @@ async function getAllMatch(req) {
 }
 
 async function getUnMatch(req,categorie) {
-  var aggregateQuery = Match.aggregate(
+  var query =
     [
       {
         $match : {
@@ -133,7 +144,29 @@ async function getUnMatch(req,categorie) {
           }
       }
     ]
-  );
+
+    const etat = req.query.etat ; 
+    if(etat && typeof etat !=='undefined') { 
+      query.unshift(
+        {
+          $match : { 
+            "idcategorie.nom" : `${categorie}`,
+             etat : `${etat}`
+          }
+        }
+      );
+    }
+    else{
+      query.unshift(
+        {
+          $match : { 
+            "idcategorie.nom" : `${categorie}`
+          }
+        }
+      );
+    }
+    var aggregateQuery = Match.aggregate(query);
+  
   const val = await Match.aggregatePaginate(
     aggregateQuery,
     {
