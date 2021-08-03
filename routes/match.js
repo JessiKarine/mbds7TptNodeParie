@@ -10,5 +10,6 @@ router.get('/getMatch', matchController.getMatch);
 router.get('/getSponsor', matchController.getSponsor);
 router.put('/:id', matchController.updateMatch);
 router.delete('/:id', matchController.removeMatchById);
+router.get('/:id', matchController.getOneMatchById);
 
 module.exports = router;

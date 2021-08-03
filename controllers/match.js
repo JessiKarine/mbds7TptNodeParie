@@ -177,7 +177,16 @@ async function getUnMatch(req,categorie) {
   return val;
 }
 
-// suppression d'un match
+// récuperation d'un match par son id
+function getOneMatchById(req, res){
+  Match.findOne({ _id: req.params.id, etat: 'A venir' })
+    .then((match) =>{
+      res.status(200).json({ match });
+    })
+    .catch(error => res.status(400).json({ error }));
+}
+
+// suppression d'un match à venire
 function removeMatchById(req, res) {
   Match.deleteOne({ _id: req.params.id })
     .then(() => {
@@ -193,5 +202,6 @@ module.exports = {
   getSponsor,
   removeMatchById,
   updateMatch,
-  getAllMatchAVenir
+  getAllMatchAVenir,
+  getOneMatchById
 };
