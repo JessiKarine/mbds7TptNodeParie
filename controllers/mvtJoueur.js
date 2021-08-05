@@ -19,6 +19,25 @@ exports.createMvtJoueur = (req, res, next) => {
         })
 }
 
+// get sold jour by idUser
+exports.getSoldUserByIdUser = (req, res, next) => {
+    MvtJoueur.find({ iduser: req.params.idUser})
+        .then((mvtJoueur) => {
+            creditReel = 0;
+            debitReel = 0;
+            mvtJoueur.forEach(itemMvtJoueur => {
+                debitReel = debitReel + itemMvtJoueur.montantDebit;
+                creditReel = creditReel + itemMvtJoueur.montantCredit;
+            });
+
+            soldeReel = creditReel - debitReel;            
+            res.status(200).json({ solde: soldeReel});
+        })
+        .catch((error) => {
+            res.status(400).json({ error });
+        })
+}
+
 // get mvtJoueur by idUser
 exports.getMvtJoueurByIdUser =(req, res, next)=>{
     MvtJoueur.find({ iduser: req.params.idUser})
