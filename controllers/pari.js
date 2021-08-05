@@ -10,8 +10,8 @@ exports.createPari = (req, res, next) => {
     });
 
     newPari.save()
-        .then(() => {
-            res.status(201).json({ message: 'Pari créé' });
+        .then((pari) => {
+            res.status(201).json({ message:  pari._id});
         })
         .catch((error) => {
             res.status(400).json({ error });
