@@ -1,0 +1,43 @@
+[{
+  "_id": {
+    "$oid": "60e2515821f595f56f84c28a"
+  },
+  "nom": "Chevrolet",
+  "description": "",
+  "image": "chevrolet.png"
+},{
+  "_id": {
+    "$oid": "60e2520521f595f56f84c28b"
+  },
+  "nom": "Fedex",
+  "description": "",
+  "image": "fedex.png"
+},{
+  "_id": {
+    "$oid": "60e2522e21f595f56f84c28c"
+  },
+  "nom": "BeinSport",
+  "description": "",
+  "image": "beinsport.png"
+},{
+  "_id": {
+    "$oid": "60e2524b21f595f56f84c28d"
+  },
+  "nom": "Redbull",
+  "description": "",
+  "image": "redbull.png"
+},{
+  "_id": {
+    "$oid": "60e2525e21f595f56f84c28e"
+  },
+  "nom": "Samsung",
+  "description": "",
+  "image": "samsung.png"
+},{
+  "_id": {
+    "$oid": "60e2527221f595f56f84c28f"
+  },
+  "nom": "Valvoline",
+  "description": "",
+  "image": "valvoline.png"
+}]

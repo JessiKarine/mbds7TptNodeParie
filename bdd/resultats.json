@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "60e257de21f595f56f84c290"
+  },
+  "date": {
+    "$date": "2021-04-20T21:00:00Z"
+  },
+  "heure": "8:00",
+  "idmatch": {
+    "$oid": "60e2456521f595f56f84c285"
+  },
+  "pointequipe1": 2,
+  "pointequipe2": 1
+},{
+  "_id": {
+    "$oid": "60ffc02a7ab75074e8dfdad0"
+  },
+  "date": {
+    "$date": "2021-05-20T21:00:00Z"
+  },
+  "heure": "9:00",
+  "idmatch": {
+    "$oid": "60e246ab21f595f56f84c286"
+  },
+  "pointequipe1": 2,
+  "pointequipe2": 0
+},{
+  "_id": {
+    "$oid": "60ffc07e7ab75074e8dfdad1"
+  },
+  "date": {
+    "$date": "2021-05-22T21:00:00Z"
+  },
+  "heure": "20:00",
+  "idmatch": {
+    "$oid": "60e1e68021f595f56f84c284"
+  },
+  "pointequipe1": 0,
+  "pointequipe2": 1
+}]

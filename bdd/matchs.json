@@ -1,0 +1,365 @@
+[{
+  "_id": {
+    "$oid": "60e1e68021f595f56f84c284"
+  },
+  "date": {
+    "$date": "2021-07-04T21:00:00Z"
+  },
+  "heure": "21:00",
+  "idcategorie": {
+    "id": "1",
+    "nom": "Euro2021"
+  },
+  "idequipe1": {
+    "id": "1",
+    "nom": "PSG",
+    "image": "logopsg.png"
+  },
+  "coteequipe1": 3.5,
+  "idequipe2": {
+    "id": "2",
+    "nom": "Arsenal",
+    "image": "logoarsenal.png"
+  },
+  "coteequipe2": 2,
+  "etat": "Fini",
+  "coteMatchNull": 0.5
+},{
+  "_id": {
+    "$oid": "60e2456521f595f56f84c285"
+  },
+  "date": {
+    "$date": "2021-04-20T21:00:00Z"
+  },
+  "heure": "19:00",
+  "idcategorie": {
+    "id": "1",
+    "nom": "Euro2021"
+  },
+  "idequipe1": {
+    "id": "3",
+    "nom": "Bresil",
+    "image": "logobresil.png"
+  },
+  "coteequipe1": 4,
+  "idequipe2": {
+    "id": "4",
+    "nom": "Portugal",
+    "image": "logoPortugal.png"
+  },
+  "coteequipe2": 5,
+  "etat": "A venir",
+  "coteMatchNull": 2
+},{
+  "_id": {
+    "$oid": "60e246ab21f595f56f84c286"
+  },
+  "date": {
+    "$date": "2021-06-30T21:00:00Z"
+  },
+  "heure": "20:00",
+  "idcategorie": {
+    "id": "2",
+    "nom": "Premier League"
+  },
+  "idequipe1": {
+    "id": "5",
+    "nom": "Allemagne",
+    "image": "logoAllemagne.png"
+  },
+  "coteequipe1": 4.25,
+  "idequipe2": {
+    "id": "6",
+    "nom": "Angleterre",
+    "image": "logoAngleterre.png"
+  },
+  "coteequipe2": 3,
+  "etat": "A venir",
+  "coteMatchNull": 2.5
+},{
+  "_id": {
+    "$oid": "61010bd4890433f36a84795a"
+  },
+  "date": {
+    "$date": "2021-07-29T21:00:00Z"
+  },
+  "heure": "20:00",
+  "idcategorie": {
+    "id": "3",
+    "nom": "Liga"
+  },
+  "idequipe1": {
+    "id": "5",
+    "nom": "Allemagne",
+    "image": "logoAllemagne.png"
+  },
+  "coteequipe1": 1.25,
+  "idequipe2": {
+    "id": "6",
+    "nom": "Angleterre",
+    "image": "logoAngleterre.png"
+  },
+  "coteequipe2": 3,
+  "etat": "A venir",
+  "coteMatchNull": 0.5
+},{
+  "_id": {
+    "$oid": "61093040e7de3b79f30738c8"
+  },
+  "date": {
+    "$date": "2021-08-10T21:00:00Z"
+  },
+  "heure": "20:00",
+  "idcategorie": {
+    "id": "1",
+    "nom": "Champion League"
+  },
+  "idequipe1": {
+    "id": "7",
+    "nom": "Bayern",
+    "image": "logobayern.png"
+  },
+  "coteequipe1": 0.5,
+  "idequipe2": {
+    "id": "8",
+    "nom": "Liverpool",
+    "image": "logoliverpool.png"
+  },
+  "coteequipe2": 2,
+  "etat": "A venir",
+  "coteMatchNull": 0.25
+},{
+  "_id": {
+    "$oid": "61093373e7de3b79f30738c9"
+  },
+  "date": {
+    "$date": "2021-08-11T21:00:00Z"
+  },
+  "heure": "21:00",
+  "idcategorie": {
+    "id": "1",
+    "nom": "Champion League"
+  },
+  "idequipe1": {
+    "id": "10",
+    "nom": "Pays Bas",
+    "image": "logopaysbas.png"
+  },
+  "coteequipe1": 2,
+  "idequipe2": {
+    "id": "11",
+    "nom": "Real Madrid",
+    "image": "logorealMadrid.png"
+  },
+  "coteequipe2": 1.5,
+  "etat": "A venir",
+  "coteMatchNull": 1
+},{
+  "_id": {
+    "$oid": "610933d0e7de3b79f30738ca"
+  },
+  "date": {
+    "$date": "2021-08-10T21:00:00Z"
+  },
+  "heure": "20:00",
+  "idcategorie": {
+    "id": "2",
+    "nom": "Premier League"
+  },
+  "idequipe1": {
+    "id": "7",
+    "nom": "Bresil",
+    "image": "logobresil.png"
+  },
+  "coteequipe1": 3,
+  "idequipe2": {
+    "id": "6",
+    "nom": "Angleterre",
+    "image": "logoAngleterre.png"
+  },
+  "coteequipe2": 2,
+  "etat": "A venir",
+  "coteMatchNull": 1.5
+},{
+  "_id": {
+    "$oid": "61093428e7de3b79f30738cb"
+  },
+  "date": {
+    "$date": "2021-08-10T21:00:00Z"
+  },
+  "heure": "20:00",
+  "idcategorie": {
+    "id": "2",
+    "nom": "Premier League"
+  },
+  "idequipe1": {
+    "id": "7",
+    "nom": "Bayern",
+    "image": "logobayern.png"
+  },
+  "coteequipe1": 0.5,
+  "idequipe2": {
+    "id": "1",
+    "nom": "PSG",
+    "image": "logopsg.png"
+  },
+  "coteequipe2": 2,
+  "etat": "A venir",
+  "coteMatchNull": 0.25
+},{
+  "_id": {
+    "$oid": "6109346ee7de3b79f30738cc"
+  },
+  "date": {
+    "$date": "2021-08-12T21:00:00Z"
+  },
+  "heure": "20:00",
+  "idcategorie": {
+    "id": "3",
+    "nom": "Liga"
+  },
+  "idequipe1": {
+    "id": "6",
+    "nom": "Angleterre",
+    "image": "logoAngleterre.png"
+  },
+  "coteequipe1": 3,
+  "idequipe2": {
+    "id": "12",
+    "nom": "Barcelone",
+    "image": "barca.png"
+  },
+  "coteequipe2": 2,
+  "etat": "A venir",
+  "coteMatchNull": 1.5
+},{
+  "_id": {
+    "$oid": "610934c3e7de3b79f30738cd"
+  },
+  "date": {
+    "$date": "2021-04-20T21:00:00Z"
+  },
+  "heure": "19:00",
+  "idcategorie": {
+    "id": "1",
+    "nom": "Euro2021"
+  },
+  "idequipe1": {
+    "id": "11",
+    "nom": "Real Madrid",
+    "image": "logorealMadrid.png"
+  },
+  "coteequipe1": 4,
+  "idequipe2": {
+    "id": "4",
+    "nom": "Portugal",
+    "image": "logoPortugal.png"
+  },
+  "coteequipe2": 5,
+  "etat": "Fini",
+  "coteMatchNull": 2
+},{
+  "_id": {
+    "$oid": "610934ebe7de3b79f30738ce"
+  },
+  "date": {
+    "$date": "2021-05-01T21:00:00Z"
+  },
+  "heure": "21:00",
+  "idcategorie": {
+    "id": "1",
+    "nom": "Euro2021"
+  },
+  "idequipe1": {
+    "id": "2",
+    "nom": "Arsenal",
+    "image": "logoarsenal.png"
+  },
+  "coteequipe1": 4,
+  "idequipe2": {
+    "id": "9",
+    "nom": "Chelsea",
+    "image": "LogoChelsea.png"
+  },
+  "coteequipe2": 5,
+  "etat": "Fini",
+  "coteMatchNull": 2
+},{
+  "_id": {
+    "$oid": "61093547e7de3b79f30738cf"
+  },
+  "date": {
+    "$date": "2021-08-10T21:00:00Z"
+  },
+  "heure": "20:00",
+  "idcategorie": {
+    "id": "2",
+    "nom": "Premier League"
+  },
+  "idequipe1": {
+    "id": "7",
+    "nom": "Bayern",
+    "image": "logobayern.png"
+  },
+  "coteequipe1": 0.5,
+  "idequipe2": {
+    "id": "8",
+    "nom": "Liverpool",
+    "image": "logoliverpool.png"
+  },
+  "coteequipe2": 2,
+  "etat": "A venir",
+  "coteMatchNull": 0.25
+},{
+  "_id": {
+    "$oid": "61093556e7de3b79f30738d0"
+  },
+  "date": {
+    "$date": "2021-08-11T21:00:00Z"
+  },
+  "heure": "21:00",
+  "idcategorie": {
+    "id": "1",
+    "nom": "Champion League"
+  },
+  "idequipe1": {
+    "id": "6",
+    "nom": "Angleterre",
+    "image": "logoAngleterre.png"
+  },
+  "coteequipe1": 2,
+  "idequipe2": {
+    "id": "11",
+    "nom": "Real Madrid",
+    "image": "logorealMadrid.png"
+  },
+  "coteequipe2": 1.5,
+  "etat": "A venir",
+  "coteMatchNull": 1
+},{
+  "_id": {
+    "$oid": "6109357de7de3b79f30738d1"
+  },
+  "date": {
+    "$date": "2021-08-10T21:00:00Z"
+  },
+  "heure": "20:00",
+  "idcategorie": {
+    "id": "1",
+    "nom": "Champion League"
+  },
+  "idequipe1": {
+    "id": "4",
+    "nom": "Portugal",
+    "image": "logoPortugal.png"
+  },
+  "coteequipe1": 0.5,
+  "idequipe2": {
+    "id": "8",
+    "nom": "Liverpool",
+    "image": "logoliverpool.png"
+  },
+  "coteequipe2": 2,
+  "etat": "A venir",
+  "coteMatchNull": 0.25
+}]
