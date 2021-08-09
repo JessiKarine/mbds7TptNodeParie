@@ -59,6 +59,17 @@ exports.getAllUtilisateur = (req, res, next) => {
         });
 };
 
+// get utilisateur by user_name
+exports.getUtilisateurByUserName = (req, res, next) => {
+    Utilisateur.findOne({ login: req.params.login })
+        .then((login) => {
+            res.status(200).json(login);
+        })
+        .catch((error) => {
+            res.status(400).json({ error });
+        });
+}
+
 // delete utilisateur
 exports.deleteUtilisateur = (req, res, next) => {
     Utilisateur.deleteOne({ _id: req.params.id })
@@ -69,3 +80,4 @@ exports.deleteUtilisateur = (req, res, next) => {
             res.status(400).json({error});
         });
 };
+

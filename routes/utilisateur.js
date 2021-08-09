@@ -7,6 +7,8 @@ const utilisateurController = require('../controllers/utilisateur');
 router.post('/', utilisateurController.createUtilisateur);
 router.post('/login', utilisateurController.getOneUtilisateurByLoginAndPassword);
 router.get('/', utilisateurController.getAllUtilisateur);
+router.get('/login/:login', utilisateurController.getUtilisateurByUserName);
 router.delete('/:id', utilisateurController.deleteUtilisateur);
+
 
 module.exports = router;
