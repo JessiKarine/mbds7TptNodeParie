@@ -74,3 +74,46 @@ exports.getAllParis = (req, res, next) => {
         })
         .catch(error => res.status(400).json({error}))
 }
+
+exports.getParis = (req, res, next) => {
+    var aggregateQuery = Pari.aggregate(
+        [
+            {
+                $unwind : '$idMatch',// destructurer le tableau venant des documents , nom du colonne
+            },
+            {
+                $lookup : {
+                    from : 'matchs', // nom du table avec 's' parce que c'est généré automatiquement par le cloudATlas (mongodb)
+                    localField : 'idMatch',
+                    foreignField : '_id' , 
+                    as : 'idMatch'
+                }
+            },
+            {
+                $unwind : '$idUser'
+            },
+            {
+                $lookup : {
+                    from : 'utilisateurs', // nom du table avec 's' parce que c'est généré automatiquement par le cloudATlas (mongodb)
+                    localField : 'idUser',
+                    foreignField : '_id' , 
+                    as : 'idUser'
+                }
+            }
+        ]
+    );
+    Pari.aggregatePaginate(
+        aggregateQuery,
+        {
+          page: parseInt(req.query.page) || 1,
+          limit: parseInt(req.query.limit) || 10,
+        },
+        (err, pari) => {
+          if (err) {
+            res.send(err);
+          }
+          res.send(pari);
+        }
+    );
+
+}
