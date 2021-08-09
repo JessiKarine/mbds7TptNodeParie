@@ -18,7 +18,7 @@ exports.createUtilisateur = (req, res, next) => {
             });
             utilisateur.save()
                 .then(() => {
-                    res.status(201).json({ message: 'Utilisateur enregistré !' });
+                    res.status(201).json(utilisateur);
                 })
                 .catch((error) => {
                     res.status(400).json({ error });
