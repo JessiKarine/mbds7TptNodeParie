@@ -75,6 +75,20 @@ exports.getAllParis = (req, res, next) => {
         .catch(error => res.status(400).json({error}))
 }
 
+exports.getPariByIdObject = (req, res, next) => {
+    console.log("ato veee");
+    Pari.findOne({ _id: req.params.id})
+        .populate({path : "idMatch" , model : "matchs" })
+        .populate({path : "idUser" , model : "Utilisateur" })
+        .then((pari) => {
+            res.status(200).json(pari)
+        })
+        .catch((error) => {
+            console.error(error);
+            res.status(400).json({error});
+        })
+}
+
 exports.getParis = (req, res, next) => {
     var aggregateQuery = Pari.aggregate(
         [
