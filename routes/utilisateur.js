@@ -9,6 +9,7 @@ router.post('/login', utilisateurController.getOneUtilisateurByLoginAndPassword)
 router.get('/', utilisateurController.getAllUtilisateur);
 router.get('/login/:login', utilisateurController.getUtilisateurByUserName);
 router.delete('/:id', utilisateurController.deleteUtilisateur);
+router.get('/:idUser', utilisateurController.getUtilisateurByIdUser);
 
 
 module.exports = router;

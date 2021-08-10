@@ -81,3 +81,13 @@ exports.deleteUtilisateur = (req, res, next) => {
         });
 };
 
+// récuperation utilisateur par son _id
+exports.getUtilisateurByIdUser = (req, res, next) =>{
+    Utilisateur.findOne({ _id: req.params.idUser})
+        .then((utilisateur) => {
+            res.status(200).json(utilisateur);
+        })
+        .catch((error) =>{
+            res.status(400).json({ error });
+        })
+}
