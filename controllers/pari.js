@@ -99,6 +99,19 @@ exports.getParis = (req, res, next) => {
                     foreignField : '_id' , 
                     as : 'idUser'
                 }
+            },
+            {
+            $project : { //mi filtrer colonne rehefa amoka resultat 1 ba 0 no miasa
+                "_id" : 1,
+                "idEquipe" : 1,
+                "mise": 1, 
+                idMatch : { 
+                $arrayElemAt : ["$idMatch",0],
+                },
+                idUser : { 
+                $arrayElemAt : ["$idUser",0]
+                }
+            }
             }
         ]
     );
