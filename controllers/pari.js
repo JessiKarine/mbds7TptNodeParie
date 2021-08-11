@@ -21,13 +21,8 @@ exports.createPari = (req, res, next) => {
 }
 
 exports.createPariBack = async (req, res, next) => {
-    console.log("match : ",req.body.idMatch._id);
-    console.log("user : ",req.body.idUser._id);
     const id = await Pari.countDocuments();
-    console.log("idpari : ",id);
     const _id = new ObjectId(id);
-    console.log("idpari : ",_id);
-    
     const newPari = new Pari({
         _id :_id ,
         idMatch:  req.body.idMatch._id,
@@ -35,8 +30,7 @@ exports.createPariBack = async (req, res, next) => {
         idUser: req.body.idUser._id,
         mise: req.body.mise
     });
-
-    newPari.save()
+    await Pari.create(newPari)
         .then((pari) => {
             res.status(201).json({ message:  pari._id});
         })
@@ -119,7 +113,7 @@ exports.getAllParis = (req, res, next) => {
 }
 
 exports.getPariByIdObject = (req, res, next) => {
-    console.log("get pari by id ");
+    console.log("get pari by id  ");
     Pari.findOne({ _id: req.params.id})
         .populate({path : "idMatch" , model : "matchs" })
         .populate({path : "idUser" , model : "Utilisateur" })
