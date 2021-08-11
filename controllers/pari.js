@@ -1,4 +1,5 @@
 const Pari = require('../models/Pari');
+const mongoose = require('mongoose');
 
 // create un nouvel pari
 exports.createPari = (req, res, next) => {
@@ -34,6 +35,22 @@ exports.updatePari = (req, res, next) => {
         idMatch: req.body.idMatch,
         idEquipe: req.body.idEquipe,
         idUser: req.body.idUser,
+        mise: req.body.mise
+    });
+
+    Pari.updateOne({ _id: req.params.id}, updatedPari)
+        .then(() => {
+            res.status(200).json({ message: 'Le pari a été modfié !'});
+        })   
+        .catch(error => res.status(400).json({error})); 
+}
+
+exports.updatePariBack = (req, res, next) => {
+    const updatedPari = new Pari({
+        _id: req.params.id,
+        idMatch: mongoose.Types.ObjectId(req.body.idMatch._id),
+        idEquipe:  req.body.idEquipe,
+        idUser: mongoose.Types.ObjectId(req.body.idUser._id),
         mise: req.body.mise
     });
 
