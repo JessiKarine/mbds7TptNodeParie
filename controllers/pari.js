@@ -1,5 +1,6 @@
 const Pari = require('../models/Pari');
 const mongoose = require('mongoose');
+const ObjectId = mongoose.mongo.ObjectID;
 
 // create un nouvel pari
 exports.createPari = (req, res, next) => {
@@ -7,6 +8,31 @@ exports.createPari = (req, res, next) => {
         idMatch: req.body.idMatch,
         idEquipe: req.body.idEquipe,
         idUser: req.body.idUser,
+        mise: req.body.mise
+    });
+
+    newPari.save()
+        .then((pari) => {
+            res.status(201).json({ message:  pari._id});
+        })
+        .catch((error) => {
+            res.status(400).json({ error });
+        });
+}
+
+exports.createPariBack = async (req, res, next) => {
+    console.log("match : ",req.body.idMatch._id);
+    console.log("user : ",req.body.idUser._id);
+    const id = await Pari.countDocuments();
+    console.log("idpari : ",id);
+    const _id = new ObjectId(id);
+    console.log("idpari : ",_id);
+    
+    const newPari = new Pari({
+        _id :_id ,
+        idMatch:  req.body.idMatch._id,
+        idEquipe:  req.body.idEquipe,
+        idUser: req.body.idUser._id,
         mise: req.body.mise
     });
 
@@ -93,6 +119,7 @@ exports.getAllParis = (req, res, next) => {
 }
 
 exports.getPariByIdObject = (req, res, next) => {
+    console.log("get pari by id ");
     Pari.findOne({ _id: req.params.id})
         .populate({path : "idMatch" , model : "matchs" })
         .populate({path : "idUser" , model : "Utilisateur" })
