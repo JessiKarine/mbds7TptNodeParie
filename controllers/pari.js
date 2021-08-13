@@ -113,7 +113,7 @@ exports.getAllParis = (req, res, next) => {
 }
 
 exports.getPariByIdObject = (req, res, next) => {
-    console.log("get pari by id  ");
+    //console.log("get pari by id  ");
     Pari.findOne({ _id: req.params.id})
         .populate({path : "idMatch" , model : "matchs" })
         .populate({path : "idUser" , model : "Utilisateur" })

@@ -73,7 +73,7 @@ async function getSponsor(req, res) {
 
 //recuperer les 2 derniers matchs
 async function getDerniersMatchs(req, res) {
-  const match = await Match.find({}).sort({ date: -1, heure: -1 }).limit(2);
+  const match = await Match.find({etat: 'A venir'}).sort({ date: -1, heure: -1 }).limit(5);
   res.send(match);
 }
 async function getMatch(req,res) {
