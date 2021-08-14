@@ -181,7 +181,7 @@ async function getUnMatch(req,categorie) {
 function getOneMatchById(req, res){
   Match.findOne({ _id: req.params.id, etat: 'A venir' })
     .then((match) =>{
-      res.status(200).json({ match });
+          res.status(200).json(match); //get rid off {}
     })
     .catch(error => res.status(400).json({ error }));
 }
