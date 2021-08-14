@@ -91,3 +91,14 @@ exports.getUtilisateurByIdUser = (req, res, next) =>{
             res.status(400).json({ error });
         })
 }
+
+//update utilisateur by _id
+exports.updateUtilisateurByIdUser = (req, res, next) => {
+    console.log("utilisateur arrivé => " + req.body.utilisateur );
+    const utilisateurToUpdate = req.body.utilisateur;
+    Utilisateur.updateOne({ _id: req.params.idUser}, utilisateurToUpdate)
+        .then((utilisateurUpdated) => {
+            res.status(200).json(utilisateurUpdated);
+        })
+        .catch(error => res.status(400).json({ error }))
+}
