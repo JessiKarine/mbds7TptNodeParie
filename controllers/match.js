@@ -73,7 +73,7 @@ async function getSponsor(req, res) {
 
 //recuperer les 2 derniers matchs
 async function getDerniersMatchs(req, res) {
-  const match = await Match.find({}).sort({ date: -1, heure: -1 }).limit(2);
+  const match = await Match.find({etat: 'A venir'}).sort({ date: -1, heure: -1 }).limit(5);
   res.send(match);
 }
 async function getMatch(req,res) {
@@ -181,7 +181,7 @@ async function getUnMatch(req,categorie) {
 function getOneMatchById(req, res){
   Match.findOne({ _id: req.params.id, etat: 'A venir' })
     .then((match) =>{
-      res.status(200).json({ match });
+          res.status(200).json(match); //get rid off {}
     })
     .catch(error => res.status(400).json({ error }));
 }

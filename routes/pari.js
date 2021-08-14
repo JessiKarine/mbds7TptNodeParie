@@ -11,6 +11,8 @@ router.get('/getPariById/:id', pariController.getPariByIdObject);
 router.get('/idUser/:idUser', pariController.getParisByUserId);
 router.delete('/:id',pariController.removePari);
 router.put('/:id', pariController.updatePari);
+router.put('/update/:id', pariController.updatePariBack);
+router.post('/insert', pariController.createPariBack);
 
 
 module.exports = router;

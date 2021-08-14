@@ -2,30 +2,34 @@ const Utilisateur = require('../models/Utilisateur');
 const bcrypt = require('bcrypt');
 
 // create un utilisateur
-exports.createUtilisateur = (req, res, next) => {    
-    bcrypt.hash(req.body.password, 10)
-        .then(hash => {
-            const utilisateur = new Utilisateur({
-                login: req.body.login,
-                password: hash,
-                nom: req.body.nom,
-                prenom: req.body.prenom,
-                etat: req.body.etat,
-                email: req.body.email,
-                numeroTelephone: req.body.numeroTelephone,
-                idRole: req.body.idRole,
-                imageProfil: req.body.imageProfil
-            });
-            utilisateur.save()
-                .then(() => {
-                    res.status(201).json(utilisateur);
-                })
-                .catch((error) => {
-                    res.status(400).json({ error });
-                });
-        })
-        .catch(error => res.status(500).json({error}));
-
+exports.createUtilisateur = async (req, res, next) => {    
+    try { 
+        const hash =  await bcrypt.hash(req.body.password, 10);
+        const utilisateur = new Utilisateur({
+            login: req.body.login,
+            password: hash,
+            nom: req.body.nom,
+            prenom: req.body.prenom,
+            etat: req.body.etat,
+            email: req.body.email,
+            numeroTelephone: req.body.numeroTelephone,
+            idRole: req.body.idRole,
+            imageProfil: req.body.imageProfil
+        });
+        try { 
+            const user = await utilisateur.save();
+            res.status(201).json(user);
+        }
+        catch(ex) { 
+            res.status(400).json({ error : ex });
+            console.error(ex);
+        }       
+    }
+    catch(e) { 
+       res.status(500).json({error : e});
+       console.error(e);
+    }
+        
 };
 
 // get un utilisateur by login and password

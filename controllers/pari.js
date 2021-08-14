@@ -1,4 +1,6 @@
 const Pari = require('../models/Pari');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.mongo.ObjectID;
 
 // create un nouvel pari
 exports.createPari = (req, res, next) => {
@@ -10,6 +12,25 @@ exports.createPari = (req, res, next) => {
     });
 
     newPari.save()
+        .then((pari) => {
+            res.status(201).json({ message:  pari._id});
+        })
+        .catch((error) => {
+            res.status(400).json({ error });
+        });
+}
+
+exports.createPariBack = async (req, res, next) => {
+    const id = await Pari.countDocuments();
+    const _id = new ObjectId(id);
+    const newPari = new Pari({
+        _id :_id ,
+        idMatch:  req.body.idMatch._id,
+        idEquipe:  req.body.idEquipe,
+        idUser: req.body.idUser._id,
+        mise: req.body.mise
+    });
+    await Pari.create(newPari)
         .then((pari) => {
             res.status(201).json({ message:  pari._id});
         })
@@ -34,6 +55,22 @@ exports.updatePari = (req, res, next) => {
         idMatch: req.body.idMatch,
         idEquipe: req.body.idEquipe,
         idUser: req.body.idUser,
+        mise: req.body.mise
+    });
+
+    Pari.updateOne({ _id: req.params.id}, updatedPari)
+        .then(() => {
+            res.status(200).json({ message: 'Le pari a été modfié !'});
+        })   
+        .catch(error => res.status(400).json({error})); 
+}
+
+exports.updatePariBack = (req, res, next) => {
+    const updatedPari = new Pari({
+        _id: req.params.id,
+        idMatch: mongoose.Types.ObjectId(req.body.idMatch._id),
+        idEquipe:  req.body.idEquipe,
+        idUser: mongoose.Types.ObjectId(req.body.idUser._id),
         mise: req.body.mise
     });
 
@@ -76,6 +113,7 @@ exports.getAllParis = (req, res, next) => {
 }
 
 exports.getPariByIdObject = (req, res, next) => {
+    //console.log("get pari by id  ");
     Pari.findOne({ _id: req.params.id})
         .populate({path : "idMatch" , model : "matchs" })
         .populate({path : "idUser" , model : "Utilisateur" })
