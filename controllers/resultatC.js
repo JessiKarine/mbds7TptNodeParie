@@ -4,8 +4,8 @@ exports.createResultat = (req, res, next) => {
         date: Date.parse(req.body.date),
         idmatch: req.body.idmatch,
         heure: req.body.heure,
-        pointequipe1: req.body.pointequipe1,
-        pointequipe2: req.body.pointequipe2
+        pointequipe1: Number(req.body.pointequipe1),
+        pointequipe2: Number(req.body.pointequipe2)
     });
     newResultat.save()
         .then(() => {
