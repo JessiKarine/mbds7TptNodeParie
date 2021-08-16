@@ -66,3 +66,13 @@ exports.getAllMvtJoueur = (req, res, next) => {
         })
         .catch(error => res.status(400).json({ error }));
 }
+
+exports.getAllMvtJoueurLib = (req, res) => {
+    MvtJoueur.find().populate({path : "iduser" , model : "Utilisateur" })
+    .populate({path : "idPari" , model : "Pari" })
+   
+        .then((mvtJoueurs) => {
+            res.status(200).json(mvtJoueurs);
+        })
+        .catch(error => res.status(400).json({ error }));
+}

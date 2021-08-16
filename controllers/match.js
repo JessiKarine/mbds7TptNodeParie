@@ -80,7 +80,7 @@ async function getAllMatchAVenirPaginer(req, res){
       limit: parseInt(req.query.limit) || 10,
     }
   );
-  res.status(200).send(val);
+  res.send(val);
 
 }
 
