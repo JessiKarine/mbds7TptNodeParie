@@ -7,6 +7,7 @@ router.post('/', matchController.createMatch);
 router.get('/', matchController.getAllMatchAVenir);
 router.get('/getDerniersMatchs', matchController.getDerniersMatchs);
 router.get('/getMatch', matchController.getMatch);
+router.get('/getMatchPaginer', matchController.getAllMatchAVenirPaginer);
 router.get('/getSponsor', matchController.getSponsor);
 router.put('/:id', matchController.updateMatch);
 router.delete('/:id', matchController.removeMatchById);

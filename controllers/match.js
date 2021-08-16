@@ -65,6 +65,25 @@ function getAllMatchAVenir(req, res){
     .catch(error => res.status(400).json({ error }));
 }
 
+async function getAllMatchAVenirPaginer(req, res){
+  var query = [
+    { 
+        $match : { 
+          "etat" : "A venir",
+        }
+    }
+  ];
+  const val = await Match.aggregatePaginate(
+    query,
+    {
+      page: parseInt(req.query.page) || 1,
+      limit: parseInt(req.query.limit) || 10,
+    }
+  );
+  res.status(200).send(val);
+
+}
+
 //liste des sponsors officiel
 async function getSponsor(req, res) {
   var sponsors = await Sponsor.find({});
@@ -203,5 +222,6 @@ module.exports = {
   removeMatchById,
   updateMatch,
   getAllMatchAVenir,
-  getOneMatchById
+  getOneMatchById,
+  getAllMatchAVenirPaginer
 };
