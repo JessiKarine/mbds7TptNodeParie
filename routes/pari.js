@@ -4,6 +4,7 @@ const router = express.Router();
 const pariController = require('../controllers/pari');
 
 router.get('/getParis', pariController.getParis);
+router.get('/countPariParMatch', pariController.countPariParMatch);
 router.post('/', pariController.createPari);
 router.get('/', pariController.getAllParis);
 router.get('/:id', pariController.getPariById);

@@ -181,3 +181,48 @@ exports.getParis = (req, res, next) => {
     );
 
 }
+
+
+exports.countPariParMatch = async (req, res) => {
+    try {
+        var aggregateTab = [
+           
+            {
+                $group : { 
+                    _id : "$idMatch",
+                    count : { 
+                        $sum :1
+                    }
+                }
+                
+            }
+            ,
+             {
+                $unwind : '$_id',// destructurer le tableau venant des documents , nom du colonne
+            },
+            {
+                $lookup : {
+                    from : 'matchs', // nom du table avec 's' parce que c'est généré automatiquement par le cloudATlas (mongodb)
+                    localField : '_id',
+                    foreignField : '_id' , 
+                    as : '_id'
+                }
+            },
+            {
+                $project : { //mi filtrer colonne rehefa amoka resultat 1 ba 0 no miasa
+                    _id : { 
+                        $arrayElemAt : ["$_id",0],
+                    },
+                    "count" : 1
+                }
+            }
+        ];
+        var aggregateQuery =  await Pari.aggregate(aggregateTab);
+        res.status(200).send(aggregateQuery);
+    }
+    catch(e) { 
+        console.log("e",e);
+        res.status(500).send(e)
+    }
+
+}
